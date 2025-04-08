@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Results Page
+{% endblock %}
+
+{% block content %}
+  <h1 class="result-text">Scan Results for: {{ domain }}</h1>
+
+  <div class="buttons">
+      <button onclick="showTab('whois')">WHOIS</button>
+      <button onclick="showTab('vuln')">Vulnerabilities</button>
+  </div>
+
+  <div id="whois" class="results whois-box">{{ whois_info }}</div>
+  <div id="vuln" class="results">{{ vuln_info }}</div>
+{% endblock %}
