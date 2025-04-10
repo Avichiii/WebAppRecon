@@ -1,0 +1,5 @@
+flask
+flask-sqlalchemy
+python-whois
+cryptography
+email_validator
