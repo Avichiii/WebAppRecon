@@ -1,6 +1,7 @@
 .result-text {
     margin-left:31px;
-    font-family: Roboto, Arial;
+    font-family: monospace;
+    font-weight: bold;
 }
 
 .buttons {
@@ -22,6 +23,16 @@
 .buttons button:hover {
     background-color: rgb(0, 0, 0);
 }
+
+.slide {
+    display: none;
+    margin: 20px auto 80px auto;
+}
+.active {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out forwards;
+}
+
 .results {
     display: none;
     border: 1px solid #ccc;
@@ -38,6 +49,7 @@
     display: block;
     animation: fadeIn 0.2s ease-in-out forwards;
 }
+
 @keyframes slideIn {
     from { transform: translateX(100px); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
@@ -56,4 +68,62 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.vuln-title {
+    color: #c0392b;
+    font-size: 24px;
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.code-block {
+    background-color: #5f5f5f;
+    padding: 10px;
+    border-left: 4px solid #000000;
+    font-family: monospace;
+    white-space: pre-wrap;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.vuln-result {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto 40px auto;
+    max-width: 900px;
+    white-space: pre-wrap;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-family: monospace;
+}
+
+.vuln-card {
+    border: 1px solid #444;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 900px;
+    white-space: pre-wrap;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.vuln-card a {
+    color: #6ab0f3;
+    text-decoration: none;
+}
+.vuln-card a:hover {
+    text-decoration: underline;
+}
+
+.vuln-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffcc00;
 }

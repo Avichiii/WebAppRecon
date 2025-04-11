@@ -17,9 +17,12 @@
 </head>
 <body>
    <header>
-    <nav>
-        <div class="nav-bar" style="cursor: pointer;">WebAppRecon</div>
-    </nav>
+    <div class="nav-bar">
+        <div class="nav-left" style="cursor: pointer;">WebAppRecon</div>
+        {% if show_home %}
+            <div class="nav-right" style="cursor: pointer;" onclick="window.location.href='/'">Search</div>
+        {% endif %}
+      </div>
    </header>
 
    <main>

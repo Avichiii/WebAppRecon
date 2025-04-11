@@ -8,10 +8,34 @@
   <h1 class="result-text">Scan Results for: {{ domain }}</h1>
 
   <div class="buttons">
-      <button onclick="showTab('whois')">WHOIS</button>
-      <button onclick="showTab('vuln')">Vulnerabilities</button>
+      <button onclick="showTab('whois')" style="font-family: monospace;font-weight: bold;">Whois</button>
+      <button onclick="showTab('vuln')" style="font-family: monospace; font-weight: bold;">Vulnerabilities</button>
   </div>
 
-  <div id="whois" class="results whois-box">{{ whois_info }}</div>
-  <div id="vuln" class="results">{{ vuln_info }}</div>
+  <div id="whois" class="slide results whois-box">{{ whois_info }}</div>
+  <div id="vuln" class="slide vuln-box">
+    {% for vuln in vuln_info %}
+      <div class="vuln-card">
+        <h2 class="vuln-title">🔐 {{ vuln.name }}</h2>
+        <p><strong>Risk:</strong> {{ vuln.risk }}</p>
+        <p><strong>Confidence:</strong> {{ vuln.confidence }}</p>
+        <p><strong>Method:</strong> {{ vuln.method }}</p>
+        <p><strong>URL:</strong> <a href="{{ vuln.url }}" target="_blank">{{ vuln.url }}</a></p>
+        <p><strong>Parameter:</strong> {{ vuln.param }}</p>
+        <p><strong>Description:</strong> {{ vuln.description }}</p>
+        <p><strong>Solution:</strong><br><pre class="code-block">{{ vuln.solution }}</pre></p>
+        <p><strong>References:</strong></p>
+        <ul>
+          {% for tag_name, tag_url in vuln.tags.items() %}
+            <li><a href="{{ tag_url }}" target="_blank">{{ tag_name }}</a></li>
+          {% endfor %}
+          {% if vuln.reference %}
+            <li><a href="{{ vuln.reference }}" target="_blank">More Info</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    {% else %}
+      <p class="vuln-card">No vulnerabilities found 🎉</p>
+    {% endfor %}
+  </div>  
 {% endblock %}
